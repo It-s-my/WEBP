@@ -1,0 +1,172 @@
+body {
+  background-color: #015965; /* Здесь можно указать любой цвет, например, название цвета или его код */
+}
+
+.Main-Container {
+  width: 90%;
+  height: 90%;
+  background-image: linear-gradient(to bottom, #03899C, #1F6B75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  overflow: scroll;
+
+}
+.Menu-Container{
+  width: 85%;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Центрирует блок по горизонтали */
+  margin-top: 5%;
+}
+.Back-Button{
+  width: 8%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  text-decoration: none;
+}
+.Path-Form{
+  width: 70%;
+  height: 80%;
+  background-color: #36BBCE;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+}
+.Sort-Button{
+  width: 8%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  cursor: pointer;
+
+}
+.Path-Form-Container{
+  width: 95%;
+  height: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  border-radius: 25px;
+}
+.B-but{
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  font-size: 80%;
+  text-decoration: none;
+}
+.S-but{
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  font-size: 80%;
+}
+.File-Container{
+  width: 71%;
+  height: fit-content;
+  padding-bottom: 4%;
+  background-color: #36BBCE;
+  display: flex;
+
+  /* Центрирует блок по горизонтали */
+  margin: 30px auto;
+  border-radius: 25px;
+  flex-direction: column;
+}
+.File-Menu-Container{
+  width: 84%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-left: 8% ;
+
+
+}
+.Spiner{
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  margin-left: 49%;
+  margin-top:20px;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.Type-con{
+  width: 8%;
+  height: 80%;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+}
+.Type{
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  font-size: 80%;
+}
+.Name-Form{
+  width: 70%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+}
+.Name-Form-Container{
+  width: 95%;
+  height: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  border-radius: 25px;
+}
+.Size-Form{
+  width: 8%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+}
+.Size{
+  width: 70%;
+  height: 80%;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+  font-size: 50%;
+  overflow: scroll;
+}
