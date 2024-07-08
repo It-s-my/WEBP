@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Server/pref"
-	"Server/syst"
+	"Server/server/pref"
+	"Server/server/syst"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -57,7 +57,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 
 func RunServer(ctx context.Context) error {
 	// Читаем конфигурацию из файла
-	file, err := os.Open("config/config.json")
+	file, err := os.Open("server/config/config.json")
 	if err != nil {
 		fmt.Println("Ошибка открытия файла", err)
 	}
@@ -75,12 +75,11 @@ func RunServer(ctx context.Context) error {
 	mux.HandleFunc("/", HandleFileSort)
 	mux.HandleFunc("/fs", pref.MainPage)
 
-	fileServer := http.FileServer(http.Dir("../static"))
-	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
-	mux.HandleFunc("../static/css/MainStyle.css", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "text/css")
-		http.ServeFile(w, r, "../static")
+	mux.HandleFunc("/bundle.js", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/javascript")
+		http.ServeFile(w, r, "bundle.js")
 	})
+
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", config.Port),
 		Handler: mux,

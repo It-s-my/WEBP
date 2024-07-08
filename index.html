@@ -5,7 +5,6 @@
   <meta charset="utf-8">
 
   <title>1</title>
-  <link rel="stylesheet" type="text/css" href="static/css/MainStyle.css">
 
 
 </head>
@@ -17,13 +16,13 @@
   <div class="Spiner" id="load-spin"></div>
   <div class="Menu-Container">
     <div class="Back-Button">
-      <div class="B-but"> <a href="#" onclick="backBut()" style=" text-decoration: none;">Назад</a></div>
+      <div class="B-but"> <a href="#" id="Back-But" style=" text-decoration: none;">Назад</a></div>
     </div>
     <div class="Path-Form">
       <div class="Path-Form-Container" id="current-path">/</div>
     </div>
     <div class="Sort-Button">
-     <div class="S-but" onclick="sort()">Asc</div>
+     <div class="S-but" id="Sort-but">Asc</div>
     </div>
   </div>
   <div class="File-Container" id="new">
@@ -31,10 +30,7 @@
 </div>
 </div>
 
-<script type="application/javascript"  src="static/script/Navigate.js"></script>
-<script type="application/javascript"  src="static/script/Data.js"></script>
-<script type="application/javascript"  src="static/script/script.js"></script>
-<script type="application/javascript"  src="static/script/config.js"></script>
+<script type="application/javascript"  src="bundle.js"></script>
 
 
 </body>
