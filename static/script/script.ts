@@ -1,0 +1,50 @@
+import { upload } from './Data';
+import {navigateToDirectory, sort} from "./Navigate";
+import {backBut} from "./Navigate";
+
+
+export let path: string; // Объявляем переменную path здесь
+export const sortAsc = "asc";
+export const sortDesc = "desc";
+
+// Получение текущего пути
+let currentPath = (<HTMLDivElement>document.getElementById('current-path')).innerHTML;
+
+// Кнопка "Назад"
+const goBackButton = document.getElementById('goback');
+// Флаг для управления сортировкой
+let flag = true;
+//История путей
+let pathHistory = [currentPath];
+
+//Управление спинером on делает его видимым off - невидимым
+export const Spin = {
+    LoadSpin: document.getElementById('load-spin'),
+    on() {
+        (<HTMLDivElement>this.LoadSpin).style.display = 'block';
+    },
+    off() {
+        (<HTMLDivElement>this.LoadSpin).style.display = 'none';
+    }
+}
+
+//Вызов функции
+upload(currentPath, flag);
+
+const sortButton = document.querySelector('#Sort-but');
+if (sortButton) {
+    sortButton.addEventListener('click', sort);
+}
+
+const BackButton = document.querySelector('#Back-But');
+if (BackButton) {
+    BackButton.addEventListener('click', backBut);
+}
+
+
+setInterval(() => {
+    let dirItems = document.querySelectorAll('#nameDir');
+    dirItems.forEach(item => {
+        item.addEventListener('click', navigateToDirectory);
+    });
+}, 1)
