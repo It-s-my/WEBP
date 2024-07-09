@@ -1,6 +1,7 @@
 body {
   background-color: #015965; /* Здесь можно указать любой цвет, например, название цвета или его код */
 }
+
 .Main-Container {
   width: 90%;
   height: 90%;
@@ -163,4 +164,11 @@ body {
   justify-content: center; /* Центрирует по горизонтали */
   align-items: center;
   font-size: 55%;
+}
+.BD{
+  background-color: white;
+  width: 80px;
+  height: 25px;
+  margin-left: 47.2%;
+  margin-top:10px;
 }

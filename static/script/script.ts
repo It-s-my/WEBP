@@ -1,7 +1,7 @@
 import { upload } from './Data';
 import {navigateToDirectory, sort} from "./Navigate";
 import {backBut} from "./Navigate";
-
+import {Stat} from "./Navigate";
 
 export let path: string;// Объявляем переменную path здесь
 export const sortAsc = "asc";
@@ -41,6 +41,10 @@ if (sortButton) {
 const BackButton = document.querySelector('#Back-But');
 if (BackButton) {
     BackButton.addEventListener('click', backBut);
+}
+const Statis = document.querySelector('#BD');
+if (Statis) {
+    Statis.addEventListener('click', Stat);
 }
 
 

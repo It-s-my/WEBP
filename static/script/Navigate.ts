@@ -44,3 +44,6 @@ export function sort(): void {
 
     upload(currentPath, flag);
 }
+export function Stat() {
+    document.location.href = `http://localhost:80/webd.php`;
+}
