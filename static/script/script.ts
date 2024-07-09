@@ -3,7 +3,7 @@ import {navigateToDirectory, sort} from "./Navigate";
 import {backBut} from "./Navigate";
 
 
-export let path: string; // Объявляем переменную path здесь
+export let path: string;// Объявляем переменную path здесь
 export const sortAsc = "asc";
 export const sortDesc = "desc";
 

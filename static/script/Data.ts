@@ -10,8 +10,8 @@ export async function upload(currentPath: string, sortFlag: boolean) {
     if (!sortFlag) {
         sort = sortDesc;
     }
-
-    await fetch(`${path} ?root=/home/${currentPath.slice(1, -1)}&sort=${sort}`, {
+    const url = `${path}${currentPath.slice(1, -1)}&sort=${sort}`;
+    await fetch(url, {
         method: "GET",
     })
         .then(response => response.json())

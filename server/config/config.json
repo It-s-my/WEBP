@@ -1,3 +1,4 @@
 {
-  "port": 9025
+  "port": 9025,
+  "path": "?root=/home"
 }
