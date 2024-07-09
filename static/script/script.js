@@ -5,7 +5,7 @@ const sortDesc = "desc"
 
 // Получение текущего пути
 let currentPath = document.getElementById('current-path').innerHTML
-
+console.log("path")
 // Кнопка "Назад"
 const goBackButton = document.getElementById('goback');
 // Флаг для управления сортировкой

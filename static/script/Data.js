@@ -1,4 +1,5 @@
 //upload - загрузка данных при загрузке страницы
+
 async function upload(currentPath,sortFlag) {
     Spin.on()
     let sort = sortAsc
@@ -8,15 +9,16 @@ async function upload(currentPath,sortFlag) {
     }
 
 
-    await fetch(path + '?root=/home/' + currentPath.slice(1, -1)+ '&sort=' + sort, {
+
+    await fetch(path + '?root=' + currentPath.slice(1, -1)+ '&sort=' + sort, {
         method: "GET",
     })
         .then(response => response.json())
         .then(data => {
             let file_list = document.getElementById("new")
             file_list.innerHTML = ""
-
-            data.forEach(element => {
+            console.log("path")
+            data["Files"].forEach(element => {
                 file_list.inertHTML += ` <div class="File-Container"></div>`
                 if (element["Type"] === "directory") {
                     console.log(element["Name"]);

@@ -1,3 +1,4 @@
+
 //navigateToDirectory - для прохода вглубь директории при нажатии на неё
 function navigateToDirectory(event) {
     let clickedElement = event.target;
@@ -7,7 +8,7 @@ function navigateToDirectory(event) {
     document.getElementById('current-path').innerHTML = currentPath
 
     upload(currentPath,flag)
-    JSON.parse()
+
     console.log(currentPath)
 }
 //backBut - Для возвращения назад по директории при нажатии кнопки назад
