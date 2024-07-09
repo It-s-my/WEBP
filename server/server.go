@@ -18,8 +18,17 @@ const shutdownTimeout = 3 * time.Second
 
 // Config структура для хранения порта
 type Config struct {
-	Port int `json:"port"`
+	Port int    `json:"port"`
+	Root string `json:"root"`
 }
+
+type Response struct {
+	Status int             `json:"Статус"`
+	Error  string          `json:"Ошибка"`
+	Files  []syst.FileInfo `json:"Файлы"`
+}
+
+var config Config
 
 // HandleFileSort - обрабатывает HTTP запросы на сервере.
 func HandleFileSort(w http.ResponseWriter, r *http.Request) {
@@ -28,22 +37,35 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	// Получаем значения параметров "root" и "sort" из URL запроса
-	root := r.URL.Query().Get("root")
+	root := config.Root + r.URL.Query().Get("root")
 	sortM := r.URL.Query().Get("sort")
 
 	// Вызываем функцию GetFailesList из пакета syst для сортировки файлов
 	data, err := syst.GetFailesList(root, sortM)
 	if err != nil {
-		log.Printf("%v %v", r.URL, err.Error())
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		resp, _ := json.Marshal(Response{
+			Status: 400,
+			Error:  "Ошибка.",
+			Files:  nil,
+		})
+		w.WriteHeader(http.StatusBadRequest)
+
+		w.Write(resp)
 		return
 	}
 	// Преобразуем данные в формат JSON
 	resp, err := json.Marshal(data)
 	// Если произошла ошибка при маршалинге данных, логируем ошибку и отправляем HTTP ошибку
 	if err != nil {
-		log.Printf("%v %v", r.URL, err.Error())
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+
+		resp, _ := json.Marshal(Response{
+			Status: 500,
+			Error:  "Ошибка.",
+			Files:  nil,
+		})
+		w.WriteHeader(http.StatusBadRequest)
+
+		w.Write(resp)
 		return
 	}
 
@@ -64,7 +86,7 @@ func RunServer(ctx context.Context) error {
 	defer file.Close()
 
 	// config - переменная для хранения конфигурации
-	var config Config
+
 	// Декодируем данные из файла в структуру Config
 	err = json.NewDecoder(file).Decode(&config)
 	if err != nil {
