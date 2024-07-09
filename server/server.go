@@ -23,9 +23,9 @@ type Config struct {
 }
 
 type Response struct {
-	Status int             `json:"Статус"`
-	Error  string          `json:"Ошибка"`
-	Files  []syst.FileInfo `json:"Файлы"`
+	Status int             `json:"Status"`
+	Error  string          `json:"Error"`
+	Files  []syst.FileInfo `json:"Files"`
 }
 
 var config Config
@@ -72,6 +72,11 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	// Устанавливаем заголовок Content-Type как application/json
 	w.Header().Set("Content-Type", "application/json")
 	// Устанавливаем статус код HTTP ответа на 200 OK
+	resp, _ = json.Marshal(Response{
+		Status: 200,
+		Error:  "",
+		Files:  data,
+	})
 	w.WriteHeader(http.StatusOK)
 	// Отправляем ответ клиенту
 	w.Write(resp)
