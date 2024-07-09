@@ -10,16 +10,16 @@ export async function upload(currentPath: string, sortFlag: boolean) {
     if (!sortFlag) {
         sort = sortDesc;
     }
-    const url = `${path}${currentPath.slice(1, -1)}&sort=${sort}`;
-    await fetch(url, {
+    const response = await fetch(`${path}?root=${currentPath.slice(1, -1)}&sort=${sort}`, {
         method: "GET",
     })
         .then(response => response.json())
         .then(data => {
+            if(data["Status"]===200){
             let file_list = <HTMLDivElement>document.getElementById("new");
             file_list.innerHTML = "";
 
-            data.forEach((element:any) => {
+            data["Files"].forEach((element:any) => {
                 file_list.innerHTML += `<div class="File-Container"></div>`
                 if (element["Type"] === "directory") {
                     console.log(element["Name"]);
@@ -50,7 +50,9 @@ export async function upload(currentPath: string, sortFlag: boolean) {
                         </div>`
                 }
             });
-        })
+        }else{
+                alert(data["Error"])
+            }})
         .catch(error => {
             console.error('Ошибка:', error);
         });

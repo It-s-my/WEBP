@@ -62,7 +62,7 @@ func walk(root string) (map[string]int64, error) {
 		//Условие, если  на пути папка, то запускается горутина, которая обрабатывает эту папку
 		//Для безопасности доступа к общей переменной directorySizes используется Lock и Unlock.
 		if info.IsDir() {
-			fmt.Printf("Проход директории: %s\n", path)
+			//fmt.Printf("Проход директории: %s\n", path)
 			wg.Add(1)
 			go func(dirPath string) {
 				defer wg.Done()

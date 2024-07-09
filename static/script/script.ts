@@ -29,7 +29,9 @@ export const Spin = {
 }
 
 //Вызов функции
-upload(currentPath, flag);
+document.addEventListener("DOMContentLoaded", (event) => {
+    upload(currentPath,flag)
+});
 
 const sortButton = document.querySelector('#Sort-but');
 if (sortButton) {

@@ -1,4 +1,4 @@
 {
   "port": 9025,
-  "path": "?root=/home"
+  "root": "/home/"
 }
