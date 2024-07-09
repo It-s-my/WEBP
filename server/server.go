@@ -45,7 +45,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		resp, _ := json.Marshal(Response{
 			Status: 400,
-			Error:  "Ошибка.",
+			Error:  err.Error(),
 			Files:  nil,
 		})
 		w.WriteHeader(http.StatusBadRequest)
@@ -60,7 +60,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 
 		resp, _ := json.Marshal(Response{
 			Status: 500,
-			Error:  "Ошибка.",
+			Error:  err.Error(),
 			Files:  nil,
 		})
 		w.WriteHeader(http.StatusBadRequest)
