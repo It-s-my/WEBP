@@ -4,6 +4,7 @@ import { Spin } from './script';
 import { path } from './script';
 
 export async function upload(currentPath: string, sortFlag: boolean) {
+
     Spin.on();
     let sort = sortAsc;
 
@@ -16,6 +17,7 @@ export async function upload(currentPath: string, sortFlag: boolean) {
         .then(response => response.json())
         .then(data => {
             if(data["Status"]===200){
+              //  (<HTMLDivElement>document.getElementById('current-path')).innerHTML = data["root"];
             let file_list = <HTMLDivElement>document.getElementById("new");
             file_list.innerHTML = "";
 

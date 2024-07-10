@@ -25,6 +25,7 @@ type Response struct {
 	Status int             `json:"Status"`
 	Error  string          `json:"Error"`
 	Files  []syst.FileInfo `json:"Files"`
+	Root   string          `json:"root"`
 }
 
 var config Config
@@ -47,6 +48,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 			Status: 400,
 			Error:  err.Error(),
 			Files:  nil,
+			Root:   root,
 		})
 		w.WriteHeader(http.StatusBadRequest)
 
@@ -69,6 +71,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 			Status: 500,
 			Error:  err.Error(),
 			Files:  nil,
+			Root:   root,
 		})
 		w.WriteHeader(http.StatusBadRequest)
 
@@ -83,6 +86,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 		Status: 200,
 		Error:  "",
 		Files:  data,
+		Root:   root,
 	})
 	w.WriteHeader(http.StatusOK)
 	// Отправляем ответ клиенту
