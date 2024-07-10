@@ -14,7 +14,8 @@ $conn = mysqli_connect($host,$username,$password,$dbname );
 }
 
     // SQL-запрос для извлечения данных из таблицы Statistics
-    $sql = "SELECT * FROM Statistics";
+    $sql = "SELECT id, Root , Size, Elapsed_time, Date_create  FROM Statistics";
+
     // Выполнение SQL-запроса
     $result = $conn->query($sql);
 
@@ -41,6 +42,7 @@ $conn = mysqli_connect($host,$username,$password,$dbname );
     }else {
         echo "0 results";
     }
+array_multisort($sizes, $times);
 $sizes_json = json_encode($sizes);
 $times_json = json_encode($times);
 ?>
@@ -54,14 +56,15 @@ $times_json = json_encode($times);
 
 <body>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart" width="50%" height="25%"></canvas>
 <script>
+    //получает контекст рисования на холсте HTML
     var ctx = document.getElementById('myChart').getContext('2d');
-    var sizes = <?php echo $sizes_json; ?>;
+    var sizes = <?php echo $sizes_json; ?>;//Извлекаем данные
     var times = <?php echo $times_json; ?>;
 
     var myChart = new Chart(ctx, {
-        type: 'bar', // Изменили тип графика на столбчатый
+        type: 'line', // Тип графика на столбчатый
         data: {
             labels: sizes,
             datasets: [{

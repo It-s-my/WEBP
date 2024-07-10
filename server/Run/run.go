@@ -35,8 +35,6 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	start := time.Now()
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-
 	// Получаем значения параметров "root" и "sort" из URL запроса
 	root := config.Root + r.URL.Query().Get("root")
 	sortM := r.URL.Query().Get("sort")
