@@ -1,11 +1,13 @@
 body {
-  background-color: #015965; /* Здесь можно указать любой цвет, например, название цвета или его код */
+  background-color: #242424; /* Здесь можно указать любой цвет, например, название цвета или его код */
 }
-
+a{
+  text-decoration: none;
+}
 .Main-Container {
   width: 90%;
   height: 90%;
-  background-image: linear-gradient(to bottom, #03899C, #1F6B75);
+  background-color: #545454;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -34,7 +36,7 @@ body {
 .Path-Form{
   width: 70%;
   height: 80%;
-  background-color: #36BBCE;
+  background-color: #1F1F1F;
   display: flex;
   justify-content: center; /* Центрирует по горизонтали */
   align-items: center;
@@ -62,7 +64,8 @@ body {
 .B-but{
   width: 70%;
   height: 80%;
-  background-color: white;
+  background-color: #1F1F1F;
+  color: white;
   border-radius: 25px;
   display: flex;
   justify-content: center; /* Центрирует по горизонтали */
@@ -73,7 +76,8 @@ body {
 .S-but{
   width: 70%;
   height: 80%;
-  background-color: white;
+  background-color: #1F1F1F;
+  color: white;
   border-radius: 25px;
   display: flex;
   justify-content: center; /* Центрирует по горизонтали */
@@ -84,7 +88,7 @@ body {
   width: 71%;
   height: fit-content;
   padding-bottom: 4%;
-  background-color: #36BBCE;
+  background-color: #1F1F1F;
   display: flex;
   /* Центрирует блок по горизонтали */
   margin: 30px auto;
