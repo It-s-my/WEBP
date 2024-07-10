@@ -48,9 +48,3 @@ if (Statis) {
 }
 
 
-setInterval(() => {
-    let dirItems = document.querySelectorAll('#nameDir');
-    dirItems.forEach(item => {
-        item.addEventListener('click', navigateToDirectory);
-    });
-}, 1)

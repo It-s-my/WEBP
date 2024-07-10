@@ -1,5 +1,5 @@
 body {
-  background-color: #B1D8BC; /* Здесь можно указать любой цвет, например, название цвета или его код */
+  background-color: #C1CAC3; /* Здесь можно указать любой цвет, например, название цвета или его код */
 }
 a{
   text-decoration: none;
@@ -32,6 +32,8 @@ a{
   justify-content: center; /* Центрирует по горизонтали */
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
 .Path-Form{
   width: 70%;
@@ -65,7 +67,7 @@ a{
   width: 70%;
   height: 80%;
   background-color: #B1D8BC;
-  color: white;
+  color: black;
   border-radius: 25px;
   display: flex;
   justify-content: center; /* Центрирует по горизонтали */
@@ -77,7 +79,7 @@ a{
   width: 70%;
   height: 80%;
   background-color: #B1D8BC;
-  color: white;
+  color: black;
   border-radius: 25px;
   display: flex;
   justify-content: center; /* Центрирует по горизонтали */
