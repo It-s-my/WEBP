@@ -60,7 +60,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	//Записываем ссылку на php файл
 	url := "http://localhost:80/index.php"
 	//Вызываем фукнцию
-	Req.Request(data, r, url, root, int(elapsed.Milliseconds()))
+	go Req.Request(data, r, url, root, int(elapsed.Milliseconds()))
 
 	// Если произошла ошибка при маршалинге данных, логируем ошибку и отправляем HTTP ошибку
 	if err != nil {
