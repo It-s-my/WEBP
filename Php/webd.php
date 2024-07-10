@@ -41,6 +41,57 @@ $conn = mysqli_connect($host,$username,$password,$dbname );
     }else {
         echo "0 results";
     }
+$sizes_json = json_encode($sizes);
+$times_json = json_encode($times);
 ?>
+<!doctype html>
+<html class="no-js" lang="">
 
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
+<body>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var sizes = <?php echo $sizes_json; ?>;
+    var times = <?php echo $times_json; ?>;
+
+    var myChart = new Chart(ctx, {
+        type: 'bar', // Изменили тип графика на столбчатый
+        data: {
+            labels: sizes,
+            datasets: [{
+                label: 'Размер от затраченного времени',
+                data: times,
+                backgroundColor: 'rgba(54, 112, 0, 0.2)',
+                borderColor: 'rgba(154, 162, 15, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Размер'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Потраченное время'
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+
+</html>
