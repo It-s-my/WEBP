@@ -12,6 +12,7 @@ func MainPage(res http.ResponseWriter, req *http.Request) {
 	ts, err := template.ParseFiles("static/index.html")
 	if err != nil {
 		log.Println(err.Error())
+		log.Println("ошибка")
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -23,4 +24,5 @@ func MainPage(res http.ResponseWriter, req *http.Request) {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
 }

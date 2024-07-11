@@ -1,9 +1,11 @@
 <?php
 // Подключение к бд
-$host = 'localhost';
-$dbname = 'RBS';
-$username = 'root';
-$password = 'password';
+$connectconfig = include('connect.php');
+
+$host = $connectconfig['host'];
+$dbname =  $connectconfig['dbname'];
+$username = $connectconfig['username'];
+$password = $connectconfig['password'];
 
 try {
     // Подключение к базе данных

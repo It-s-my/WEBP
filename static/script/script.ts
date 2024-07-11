@@ -2,13 +2,14 @@ import { upload } from './Data';
 import {navigateToDirectory, sort} from "./Navigate";
 import {backBut} from "./Navigate";
 import {Stat} from "./Navigate";
+import {ElemCreate} from "./ElementCreate";
 
-export let path: string;// Объявляем переменную path здесь
 export const sortAsc = "asc";
 export const sortDesc = "desc";
 
+
 // Получение текущего пути
-let currentPath = (<HTMLDivElement>document.getElementById('current-path')).innerHTML;
+let currentPath = ""
 
 // Кнопка "Назад"
 const goBackButton = document.getElementById('goback');
@@ -30,6 +31,7 @@ export const Spin = {
 
 //Вызов функции
 document.addEventListener("DOMContentLoaded", (event) => {
+    console.log(currentPath)
     upload(currentPath,flag)
 });
 

@@ -89,11 +89,10 @@ a{
 .File-Container{
   width: 71%;
   height: fit-content;
-  padding-bottom: 4%;
   background-color: #B1D8BC;
   display: flex;
   /* Центрирует блок по горизонтали */
-  margin: 30px auto;
+  margin: 1px auto;
   border-radius: 25px;
   flex-direction: column;
 }
@@ -103,7 +102,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 10px;
   margin-left: 8% ;
 }
 .Spiner{

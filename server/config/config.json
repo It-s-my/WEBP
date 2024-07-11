@@ -1,4 +1,7 @@
 {
   "port": 9020,
-  "root": "/home"
+  "root": "/home",
+  "urlForPhp": "http://localhost",
+  "PortForPhp": 80,
+  "FilePathForPhp": "/index.php"
 }

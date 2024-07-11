@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Server/server/Run"
+	"Server/server/run"
 	"context"
 	"fmt"
 	"os"
@@ -15,7 +15,7 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
 	defer cancel()
 
-	err := Run.RunServer(ctx)
+	err := run.RunServer(ctx)
 	if err != nil {
 		fmt.Errorf("Ошибка запуска сервера: %v")
 		return

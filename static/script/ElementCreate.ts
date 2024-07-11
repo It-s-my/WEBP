@@ -1,17 +1,14 @@
 import { navigateToDirectory } from "./Navigate";
 let isFirstLoad = true;
 
+
 export function ElemCreate(data: any) {
 
     let file_list = <HTMLDivElement>document.getElementById("new");
-    // Отображаем корневой путь при первой загрузке
-    let startpath = "";
+
+    let path = data["root"];
+    (<HTMLDivElement>document.getElementById('current-path')).innerHTML = path;
     file_list.innerHTML = "";
-    if (isFirstLoad) {
-        startpath = data["root"];
-        //(<HTMLDivElement>document.getElementById('current-path')).innerHTML = startpath;
-        isFirstLoad = false; // После первой загрузки меняем значение флага
-    }
     data["Files"].forEach((element:any) => {
         let fileContainer = document.createElement("div");
         fileContainer.className = "File-Container";
@@ -34,8 +31,7 @@ export function ElemCreate(data: any) {
             const directoryLink = document.createElement("div");
             directoryLink.id = "path";
             directoryLink.textContent = element["Name"];
-            directoryLink.addEventListener("click", navigateToDirectory)
-
+            directoryLink.addEventListener("click", (event) => navigateToDirectory(path, event));
 
             nameFormContainer.appendChild(directoryLink);
             nameForm.appendChild(nameFormContainer);
@@ -72,7 +68,6 @@ export function ElemCreate(data: any) {
             const directoryLink = document.createElement("div");
             directoryLink.id = "filepath";
             directoryLink.textContent = element["Name"];
-            console.log(startpath)
 
             nameFormContainer.appendChild(directoryLink);
             nameForm.appendChild(nameFormContainer);

@@ -96,8 +96,8 @@ func walk(root string) (map[string]int64, error) {
 	return directorySizes, nil
 }
 
-// GetFailesList принимает путь и тип сортировки, возвращая FileInfo, в котором содержится вся информация о директории.
-func GetFailesList(rootPath string, sortOrder string) ([]FileInfo, error) {
+// GetFilesList принимает путь и тип сортировки, возвращая FileInfo, в котором содержится вся информация о директории.
+func GetFilesList(rootPath string, sortOrder string) ([]FileInfo, error) {
 	//Запуск таймера выполнения программы
 	start := time.Now()
 
