@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
 	"time"
 )
 
@@ -38,6 +39,15 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	// Получаем значения параметров "root" и "sort" из URL запроса
 	root := config.Root + r.URL.Query().Get("root")
 	sortM := r.URL.Query().Get("sort")
+
+	// Очищаем путь от лишних символов
+	root = path.Clean(root)
+
+	if root == "" {
+		root = config.Root
+	} else {
+		root = config.Root + r.URL.Query().Get("root")
+	}
 
 	// Вызываем функцию GetFailesList из пакета syst для сортировки файлов
 	data, err := syst.GetFailesList(root, sortM)

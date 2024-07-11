@@ -1,4 +1,4 @@
 {
-  "port": 9030,
-  "root": "/home/"
+  "port": 9020,
+  "root": "/home"
 }

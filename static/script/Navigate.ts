@@ -4,6 +4,7 @@ let flag: boolean = true; // Инициализация переменной fla
 
 // Функция navigateToDirectory - для перехода внутрь директории при нажатии на неё
 export function navigateToDirectory(event: Event) {
+
     let clickedElement = event.target;
 
     let currentPath = (<HTMLDivElement>document.getElementById('current-path')).innerHTML + (<HTMLLinkElement>clickedElement).innerHTML + "/";
@@ -45,5 +46,5 @@ export function sort(): void {
     upload(currentPath, flag);
 }
 export function Stat() {
-    document.location.href = `http://localhost:80/webd.php`;
+    document.location.href = `http://localhost:80/Table.php`;
 }
