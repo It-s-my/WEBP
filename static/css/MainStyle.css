@@ -55,7 +55,7 @@ a{
 }
 .Path-Form-Container{
   width: 95%;
-  height: 80%;
+  height: 50%;
   background-color: white;
   display: flex;
   justify-content: left; /* Центрирует по горизонтали */
