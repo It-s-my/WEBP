@@ -1,4 +1,5 @@
 const path = require('path');
+const WebpackObfuscator = require('webpack-obfuscator');
 
 module.exports = {
     resolve: {
@@ -15,12 +16,17 @@ module.exports = {
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ],
             },
-
-        ]
+        ],
     },
-
+    plugins: [
+        new WebpackObfuscator({
+            rotateStringArray: true,
+            stringArrayEncoding: ['base64'], // Указываем значение как массив
+            stringArrayThreshold: 0.75
+        })
+    ],
     output: {
-        filename: 'bundle.js', //[chunkhash] для уникального имени файла
+        filename: 'bundle.js',
         path: path.resolve(__dirname, '')
     }
 };
