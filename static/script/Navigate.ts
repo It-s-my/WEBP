@@ -55,5 +55,6 @@ export function sort(): void {
     upload(currentPath, flag);
 }
 export function Stat() {
-    document.location.href = `http://localhost:80/Table.php`;
+    let PhpUrl = new URL(location.href)
+    document.location.href = `${PhpUrl.protocol}//${PhpUrl.hostname}:80/Table.php`;
 }
