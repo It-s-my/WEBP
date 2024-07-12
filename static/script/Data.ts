@@ -14,7 +14,7 @@ export async function upload(currentPath: string, sortFlag: boolean) {
         sort = sortDesc;
     }
 
-    const url = `${location.origin}/fs?root=${currentPath}&sort=${sort}`;
+    const url = `/fs?root=${currentPath}&sort=${sort}`;
     console.log(url)
     console.log(currentPath)
     const response = await fetch(url, {

@@ -14,25 +14,25 @@ import (
 )
 
 const shutdownTimeout = 3 * time.Second
-const status1 = 400
-const status2 = 500
-const status3 = 200
+const statusBadRequest = 400
+const statusInternalServerError = 500
+const statusOK = 200
 
 // Config структура для хранения данных из конфига
 type Config struct {
-	Port       int    `json:"port"`
-	Root       string `json:"root"`
-	UrlPhp     string `json:"urlForPhp"`
-	PortPhp    int    `json:"PortForPhp"`
-	PathForPhp string `json:"FilePathForPhp"`
+	Port       int    `json:"port"`           //хранит порт для запуска сервера
+	Root       string `json:"root"`           //хранит начальный путь
+	UrlPhp     string `json:"urlForPhp"`      //хранит ссылку на php файл
+	PortPhp    int    `json:"PortForPhp"`     //хранит порт для запуска сервера php
+	PathForPhp string `json:"FilePathForPhp"` //хранит название файла php
 }
 
 //Response структура для хранения статуса,ошибки,файлов и пути
 type Response struct {
-	Status int             `json:"Status"`
-	Error  string          `json:"Error"`
-	Files  []syst.FileInfo `json:"Files"`
-	Root   string          `json:"root"`
+	Status int             `json:"Status"` //статус ошибки
+	Error  string          `json:"Error"`  //ошибка
+	Files  []syst.FileInfo `json:"Files"`  //размер файла
+	Root   string          `json:"root"`   //путь файла
 }
 
 var config *Config
@@ -74,7 +74,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	data, err := syst.GetFilesList(root, sortM)
 	if err != nil {
 		resp, marshalErr := json.Marshal(Response{
-			Status: status1,
+			Status: statusBadRequest,
 			Error:  err.Error(),
 			Files:  nil,
 			Root:   root,
@@ -96,7 +96,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 
 		resp, marshalErr := json.Marshal(Response{
-			Status: status2,
+			Status: statusInternalServerError,
 			Error:  err.Error(),
 			Files:  nil,
 			Root:   root,
@@ -120,7 +120,7 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	// Устанавливаем статус код HTTP ответа на 200 OK
 	resp, marshalErr := json.Marshal(Response{
-		Status: status3,
+		Status: statusOK,
 		Error:  "",
 		Files:  data,
 		Root:   root,

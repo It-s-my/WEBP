@@ -20,8 +20,7 @@ module.exports = {
     },
 
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.js', //[chunkhash] для уникального имени файла
         path: path.resolve(__dirname, '')
     }
-
 };
