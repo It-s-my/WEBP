@@ -7,8 +7,8 @@
     ""
   ],
   "scripts": {
-    "start": "node_modules/.bin/webpack serve --open --config webpack.config.js",
-    "build": "node_modules/.bin/webpack --config webpack.config.js"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "devDependencies": {
     "copy-webpack-plugin": "11.0.0",

@@ -1,5 +1,5 @@
 {
-  "port": 9020,
+  "port": 9022,
   "root": "/home",
   "urlForPhp": "http://localhost",
   "PortForPhp": 80,

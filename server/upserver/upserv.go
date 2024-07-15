@@ -163,9 +163,11 @@ func RunServer(ctx context.Context) error {
 	mux.HandleFunc("/fs", HandleFileSort)
 	mux.HandleFunc("/", pref.MainPage)
 
-	mux.HandleFunc("/bundle.js", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "bundle.js")
-	})
+	// Создаем файловый сервер для обслуживания статических файлов из директории ./static/public
+	fileServer := http.FileServer(http.Dir("./static/public"))
+
+	// Добавляем обработчик запросов к пути /public/*
+	mux.Handle("/public/", http.StripPrefix("/public", fileServer))
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", config.Port),
