@@ -9,7 +9,7 @@ import (
 
 // MainPage отображает главную страницу сайта.
 func MainPage(res http.ResponseWriter, req *http.Request) {
-	templatePath := filepath.Join("static", "index.html")
+	templatePath := filepath.Join("static", "public", "index.html")
 
 	ts, err := template.ParseFiles(templatePath)
 	if err != nil {

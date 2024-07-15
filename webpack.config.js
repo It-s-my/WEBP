@@ -1,8 +1,9 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     resolve: {
-        extensions: ['.ts', '.js','.css']
+        extensions: ['.ts', '.js', '.css']
     },
     entry: './static/index.ts',
     module: {
@@ -13,13 +14,22 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ],
+                use: ['style-loader', 'css-loader'],
             },
         ],
-
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './static/index.html',
+            filename: './index.html', // Указываем путь для сохранения HTML файла
+            // publicPath: '', // Оставляем publicPath пустым
+            // inject: true,
+            // scriptLoading:"module"
+
+        })
+    ],
     output: {
         path: path.resolve(__dirname, 'static/public'),
-        filename: 'bundle.js'
+        filename: 'bundle.[contenthash].js'
     }
 };
