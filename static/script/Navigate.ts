@@ -12,11 +12,9 @@ let flag: boolean = true; // Инициализация переменной fla
 export function navigateToDirectory(path: string, event: Event) {
 
     let clickedElement = event.target;
-    console.log("BEFORE\n")
-    console.log(path + "\n")
+
     let currentPath = path +"/"+ (<HTMLLinkElement>clickedElement).innerHTML + "/";
-    console.log("AFTER \n")
-    console.log(currentPath + "\n")
+
     upload(currentPath, flag);
 }
 
