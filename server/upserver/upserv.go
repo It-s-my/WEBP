@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"time"
 )
 
@@ -138,12 +139,19 @@ func HandleFileSort(w http.ResponseWriter, r *http.Request) {
 
 //RunServer - Запускает сервер
 func RunServer(ctx context.Context) error {
-	// Читаем конфигурацию из файла
-	file, err := os.Open("server/config/config.json")
+	// Построение кросс-платформенного пути к файлу
+	configPath := filepath.Join("server", "config", "config.json")
+
+	file, err := os.Open(configPath)
 	if err != nil {
-		fmt.Println("Ошибка открытия файла", err)
+		fmt.Println("Ошибка открытия файла:", err)
+		return err
 	}
-	defer file.Close()
+	defer func() {
+		if err := file.Close(); err != nil {
+			fmt.Println("Ошибка при закрытии файла:", err)
+		}
+	}()
 
 	// Декодируем данные из файла в структуру Config
 	err = json.NewDecoder(file).Decode(&config)

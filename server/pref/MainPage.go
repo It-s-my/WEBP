@@ -4,15 +4,17 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
 // MainPage отображает главную страницу сайта.
 func MainPage(res http.ResponseWriter, req *http.Request) {
-	// Парсим шаблон страницы index.html
-	ts, err := template.ParseFiles("static/index.html")
+	templatePath := filepath.Join("static", "index.html")
+
+	ts, err := template.ParseFiles(templatePath)
 	if err != nil {
 		log.Println(err.Error())
-		log.Println("ошибка")
+		log.Println("Ошибка")
 		http.Error(res, err.Error(), http.StatusInternalServerError)
 		return
 	}
