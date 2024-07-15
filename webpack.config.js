@@ -21,7 +21,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './static/index.html',
-            filename: './index.html', // Указываем путь для сохранения HTML файла
+            filename: '../index2.html', // Указываем путь для сохранения HTML файла
             // publicPath: '', // Оставляем publicPath пустым
             // inject: true,
             // scriptLoading:"module"
