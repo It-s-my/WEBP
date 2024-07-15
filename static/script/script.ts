@@ -31,7 +31,6 @@ export const Spin = {
 
 //Вызов функции
 document.addEventListener("DOMContentLoaded", (event) => {
-    console.log(currentPath)
     upload(currentPath,flag)
 });
 

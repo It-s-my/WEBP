@@ -6,8 +6,6 @@ const currentURL = window.location.href;
 // Получить путь к директории на сервере
 const serverPath = currentURL.substring(0, currentURL.lastIndexOf('/'));
 
-console.log(serverPath);
-console.log(1111);
 let flag: boolean = true; // Инициализация переменной flag
 
 // Функция navigateToDirectory - для перехода внутрь директории при нажатии на неё
